@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Rick And Morty</string>
+    <string name="title_characters">characters</string>
+    <string name="title_locations">locations</string>
+    <string name="title_episodes">episodes</string>
+    <string name="status">Status:</string>
+    <string name="species">Species:</string>
+    <string name="type">Type:</string>
+    <string name="gender">Gender:</string>
+    <string name="origin">Origin:</string>
+    <string name="location">Location:</string>
+    <string name="episode">Episode #</string>
+    <string name="episodes">Episodes:</string>
+    <string name="air_date">Air date:</string>
+    <string name="characters">Characters:</string>
+    <string name="dimensions">Dimensions:</string>
+    <string name="error_text">An error occurred. Try again later</string>
+    <string name="enter_name">name</string>
+    <string name="enter_status">status</string>
+    <string name="enter_species">species</string>
+    <string name="enter_type">type</string>
+    <string name="enter_dimension">dimension</string>
+    <string name="enter_gender">gender</string>
+    <string name="text_none">none</string>
+    <string name="text_unknown">unknown</string>
+    <string name="text_show">show</string>
+    <string name="filter">filter</string>
+    <string name="enter_text">Enter text</string>
+    <string name="data_not_found">Data not found, please try again later</string>
+    <string name="enter_episode">episode</string>
+</resources>

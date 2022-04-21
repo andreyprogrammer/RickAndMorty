@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/episodesFilterContentStart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/episodesFilterContentEnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/episodesFilterName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/episodesFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/episodesFilterContentEnd"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/episodesFilterEpisode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_episode"
+        app:layout_constraintStart_toStartOf="@id/episodesFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/episodesFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/episodesFilterName"
+        />
+
+    <Button
+        android:id="@+id/episodesFilterBtnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_show"
+        app:layout_constraintStart_toStartOf="@id/episodesFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/episodesFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/episodesFilterEpisode"
+        />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

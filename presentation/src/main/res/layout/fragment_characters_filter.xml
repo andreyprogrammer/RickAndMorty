@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/charactersFilterContentStart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/charactersFilterContentEnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/characterFilterName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/characterFilterSpecies"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_species"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterName"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/characterFilterType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_type"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterSpecies"
+        />
+
+    <TextView
+        android:id="@+id/characterFilterLabelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterType" />
+
+    <RadioGroup
+        android:id="@+id/characterFilterRadioStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterLabelStatus"
+        >
+
+        <RadioButton
+            android:id="@+id/characterFilterStatusNone"
+            android:layout_width="wrap_content"
+            android:text="@string/text_none"
+            android:textSize="12sp"
+            android:checked="true"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterStatusAlive"
+            android:layout_width="wrap_content"
+            android:text="alive"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterStatusDead"
+            android:layout_width="wrap_content"
+            android:text="dead"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterStatusUnknown"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/text_unknown"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/characterFilterLabelGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterRadioStatus" />
+
+    <RadioGroup
+        android:id="@+id/characterFilterRadioGender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterLabelGender"
+        >
+
+        <RadioButton
+            android:id="@+id/characterFilterGenderNone"
+            android:layout_width="wrap_content"
+            android:text="@string/text_none"
+            android:checked="true"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterGenderFemale"
+            android:layout_width="wrap_content"
+            android:text="female"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterGenderMale"
+            android:layout_width="wrap_content"
+            android:text="male"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterGenderGenderless"
+            android:layout_width="wrap_content"
+            android:text="genderless"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/characterFilterGenderUnknown"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/text_unknown"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/characterFilterBtnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_show"
+        app:layout_constraintStart_toStartOf="@id/charactersFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/charactersFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/characterFilterRadioGender"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

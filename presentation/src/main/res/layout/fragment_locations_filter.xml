@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/locationsFilterContentStart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/locationsFilterContentEnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/locationsFilterName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/locationsFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/locationsFilterContentEnd"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/locationsFilterType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_type"
+        app:layout_constraintStart_toStartOf="@id/locationsFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/locationsFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/locationsFilterName"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/locationsFilterDimension"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_dimension"
+        app:layout_constraintStart_toStartOf="@id/locationsFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/locationsFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/locationsFilterType"
+        />
+
+    <Button
+        android:id="@+id/locationsFilterBtnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_show"
+        app:layout_constraintStart_toStartOf="@id/locationsFilterContentStart"
+        app:layout_constraintEnd_toEndOf="@id/locationsFilterContentEnd"
+        app:layout_constraintTop_toBottomOf="@id/locationsFilterDimension"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

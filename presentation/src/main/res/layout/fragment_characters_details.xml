@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="charactersDetailsViewModel"
+            type="com.example.andreymerkurev.rickandmorty.feature.charactersdetails.CharactersDetailsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/charactersDetailsContentStart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/charactersDetailsContentEnd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <ProgressBar
+            android:id="@+id/charactersDetailsProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/charactersDetailsErrorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textColor="@color/red"
+            android:text="@string/data_not_found"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsProgress"
+            />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/charactersDetailsBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="charactersDetailsProgress,charactersDetailsErrorText" />
+
+
+        <TextView
+            android:id="@+id/charactersDetailsName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{charactersDetailsViewModel.character.name}"
+            tools:text="Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsBarrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/charactersDetailsImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            app:imageUrl="@{charactersDetailsViewModel.character.image}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/status"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsImage"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            />
+        <TextView
+            android:id="@+id/charactersDetailsStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            tools:text="status"
+            android:text="@{charactersDetailsViewModel.character.status}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsImage"
+            app:layout_constraintStart_toEndOf="@id/charactersDetailsLabelStatus"
+            />
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelSpecies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/species"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelStatus"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            />
+        <TextView
+            android:id="@+id/charactersDetailsSpecies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            tools:text="species"
+            android:text="@{charactersDetailsViewModel.character.species}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelStatus"
+            app:layout_constraintStart_toEndOf="@id/charactersDetailsLabelSpecies"
+            />
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/type"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelSpecies"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            />
+        <TextView
+            android:id="@+id/charactersDetailsType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            tools:text="type"
+            android:text="@{charactersDetailsViewModel.character.species}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelSpecies"
+            app:layout_constraintStart_toEndOf="@id/charactersDetailsLabelType"
+            />
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/gender"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelType"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            />
+        <TextView
+            android:id="@+id/charactersDetailsGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            tools:text="gender"
+            android:text="@{charactersDetailsViewModel.character.gender}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelType"
+            app:layout_constraintStart_toEndOf="@id/charactersDetailsLabelGender"
+            />
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/origin"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelGender"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            />
+        <TextView
+            android:id="@+id/charactersDetailsOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textStyle="italic|bold"
+            android:textColor="#0031E3"
+            android:autoLink="all"
+            tools:text="origin"
+            android:text="@{charactersDetailsViewModel.character.origin.name}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelGender"
+            app:layout_constraintStart_toEndOf="@id/charactersDetailsLabelOrigin"
+            />
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/location"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelOrigin"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            />
+        <TextView
+            android:id="@+id/charactersDetailsLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textStyle="italic|bold"
+            android:textColor="#0031E3"
+            tools:text="location"
+            android:text="@{charactersDetailsViewModel.character.location.name}"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelOrigin"
+            app:layout_constraintStart_toEndOf="@id/charactersDetailsLabelLocation"
+            />
+
+        <TextView
+            android:id="@+id/charactersDetailsLabelEpisode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/episodes"
+            app:layout_constraintEnd_toStartOf="@+id/charactersDetailsContentEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelLocation" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/charactersDetailsRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/charactersDetailsContentEnd"
+            app:layout_constraintStart_toStartOf="@id/charactersDetailsContentStart"
+            app:layout_constraintTop_toBottomOf="@id/charactersDetailsLabelEpisode"
+            app:listEpisodes="@{charactersDetailsViewModel.episodes}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

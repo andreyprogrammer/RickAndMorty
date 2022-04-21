@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="locationsDetailsViewModel"
+            type="com.example.andreymerkurev.rickandmorty.feature.locationdetails.LocationsDetailsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/locationsDetailsContentStart"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/locationsDetailsContentEnd"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+            <ProgressBar
+                android:id="@+id/locationsDetailsProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/locationsDetailsErrorText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/data_not_found"
+                android:textColor="@color/red"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationsDetailsProgress" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/locationsDetailsBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="locationsDetailsProgress,locationsDetailsErrorText" />
+
+            <TextView
+                android:id="@+id/locationsDetailsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@{locationsDetailsViewModel.location.name}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/locationsDetailsBarrier"
+                tools:text="Name" />
+
+            <TextView
+                android:id="@+id/locationsDetailsLabelType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/type"
+                app:layout_constraintStart_toStartOf="@id/locationsDetailsContentStart"
+                app:layout_constraintTop_toBottomOf="@id/locationsDetailsName" />
+
+            <TextView
+                android:id="@+id/locationsDetailsType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{locationsDetailsViewModel.location.type}"
+                app:layout_constraintStart_toEndOf="@id/locationsDetailsLabelType"
+                app:layout_constraintTop_toBottomOf="@id/locationsDetailsName"
+                tools:text="Space station" />
+
+            <TextView
+                android:id="@+id/locationsDetailsLabelDimension"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/dimensions"
+                app:layout_constraintStart_toStartOf="@id/locationsDetailsContentStart"
+                app:layout_constraintTop_toBottomOf="@id/locationsDetailsLabelType" />
+
+            <TextView
+                android:id="@+id/locationsDetailsDimension"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{locationsDetailsViewModel.location.dimension}"
+                app:layout_constraintStart_toEndOf="@id/locationsDetailsLabelDimension"
+                app:layout_constraintTop_toBottomOf="@id/locationsDetailsLabelType"
+                tools:text="unknown" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/locationsDetailsRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/locationsDetailsContentEnd"
+                app:layout_constraintStart_toStartOf="@id/locationsDetailsContentStart"
+                app:layout_constraintTop_toBottomOf="@id/locationsDetailsDimension"
+                app:listCharacters="@{locationsDetailsViewModel.characters}"
+                app:spanCount="2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
